@@ -28,7 +28,6 @@ public class ExcelUtilities {
 			// Use for loop and copy data
 			for (int r = 1; r < totalRow; r++) {
 				// Initialize map for each row
-
 				Map<String, String> rowData = new HashMap<String, String>();
 				for (int c = 0; c < totalColumn; c++) {
 					String columnName = sh.getRow(0).getCell(c).getStringCellValue();
