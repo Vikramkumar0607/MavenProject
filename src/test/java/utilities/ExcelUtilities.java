@@ -60,6 +60,14 @@ public class ExcelUtilities {
 			// Get the Total row and column having data
 			int totalRow = sh.getPhysicalNumberOfRows();
 			int totalColumn = sh.getRow(0).getPhysicalNumberOfCells();
+			excelData = new String[totalRow][totalColumn];
+			for(int r=0; r<totalRow ;r++) {
+				for(int c =0;c<totalColumn;c++) {
+					String cellValue=sh.getRow(r).getCell(c).getStringCellValue();
+					excelData[r][c]=cellValue;
+				}
+				
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
