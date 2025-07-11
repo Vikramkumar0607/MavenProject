@@ -11,13 +11,15 @@ public class BrowserActions {
 				WebDriver driver =new ChromeDriver();
 				
 				//2. Minimize  browser window
-				driver.manage().window().minimize();
+				//driver.manage().window().minimize();
 				
 				//3.Maximise to specific resolution(800X400)
 				driver.manage().window().setSize(new Dimension(430, 932));
 				
 				//4.Maximize the browser windows
-				driver.manage().window().maximize();
+				//driver.manage().window().maximize();
+				
+				driver.get("https://nss.nexterp.in/nlp/nlp/v1/academics/user-account-management#/parent");
 	}
 
 }
