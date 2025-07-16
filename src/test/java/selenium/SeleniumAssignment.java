@@ -1,8 +1,13 @@
 package selenium;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class SeleniumAssignment {
@@ -43,19 +48,29 @@ public class SeleniumAssignment {
 		// 9. Click on Login Button
 		WebElement loginButton = driver.findElement(By.xpath("//input[@class='button']"));
 		loginButton.click();
-		Thread.sleep(10);
+		// wait
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//p[@class='error']"), 0));
 		// 10. Verify error message is displayed (The username and password could not be
 		// verified.)
 		WebElement errorMessage = driver.findElement(By.xpath("//p[@class='error']"));
+
 		String actualMessage = errorMessage.getText();
 		String expectMessage = "Please enter a username and password.";
 		Assert.assertEquals(actualMessage, expectMessage);
 
 		// 11. Click on Adminpage link
-
+		WebElement adminlink = driver.findElement(By.xpath("//a[text()='Admin Page']"));
+		adminlink.click();
 		// 12. Wait for admin page
+		wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//h1[contains(text(),'Administration')]]"), 0));
 		// 13. Select Data access mode as ' SOAP'
+		selectDataAccessMode("soap");
+		
 		// 14. Scrolldown till Loan provider
+		WebElement loandprovider = driver.findElement(By.xpath("//select[@name='loanProvider']"));
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("argumennts[0].scrollIntoView(true);", loandprovider);
 		// 15. Select Loanprovider as 'Web Service'
 		// 16. Click on Submit button
 		// 17.wait for Successful submission message
@@ -68,6 +83,12 @@ public class SeleniumAssignment {
 		// 24.Close browser window
 		driver.close();
 
+	}
+	
+	public static void selectDataAccessMode(String option) {
+	  WebElement dabmode = driver.findElement(By.xpath("//input[@value='"+option+"']"));
+	  dabmode.click();
+		
 	}
 
 }
