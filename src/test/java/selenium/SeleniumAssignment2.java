@@ -1,5 +1,7 @@
 package selenium;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,6 +20,7 @@ public class SeleniumAssignment2 {
 		//4. Enter URL and Launch the application (https://demoqa.com/automation-practice-form)        
 		driver.get("https://demoqa.com/automation-practice-form");
 		//5. Wait for Page-load
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		//6. Enter First name and Last name    
 		driver.findElement(By.xpath("")).sendKeys("");
 		driver.findElement(By.xpath("")).sendKeys("");
