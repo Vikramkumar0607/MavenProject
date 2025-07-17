@@ -51,8 +51,8 @@ public class SeleniumAssignment {
 		WebElement loginButton = driver.findElement(By.xpath("//input[@class='button']"));
 		loginButton.click();
 		// wait
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//p[@class='error']"), 0));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//p[@class='error']"), 0));
 		// 10. Verify error message is displayed (The username and password could not be
 		// verified.)
 		WebElement errorMessage = driver.findElement(By.xpath("//p[@class='error']"));
@@ -65,7 +65,7 @@ public class SeleniumAssignment {
 		WebElement adminlink = driver.findElement(By.xpath("//a[text()='Admin Page']"));
 		adminlink.click();
 		// 12. Wait for admin page
-		wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//h1[contains(text(),'Administration')]]"), 0));
+		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//h1[contains(text(),'Administration')]]"), 0));
 		// 13. Select Data access mode as ' SOAP'
 		selectDataAccessMode("soap");
 
@@ -81,14 +81,14 @@ public class SeleniumAssignment {
 		driver.findElement(By.xpath("//input[@value='Submit']")).click();
 
 		// 17.wait for Successful submission message
-		wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//b[text()='Settings saved successfully.']"), 0));
+		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//b[text()='Settings saved successfully.']"), 0));
 		
 		// 18.Click on Services Link
 		WebElement servicesLink = driver.findElement(By.xpath("//ul[@class='leftmenu']//a[text()='Services']"));
 		servicesLink.click();
 		
 		// 19.Wait for Services page
-		wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//span[text()='Available ParaBank SOAP services:']"), 0));
+		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//span[text()='Available ParaBank SOAP services:']"), 0));
 		// 20.Scrolldown till Bookstore services
 		WebElement bookstore = driver.findElement(By.xpath("//span[text()='Bookstore services:']"));
 		js.executeScript("argumennts[0].scrollIntoView(true);", bookstore);

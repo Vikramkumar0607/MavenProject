@@ -1,7 +1,5 @@
 package assignment;
 
-import java.util.Iterator;
-
 public class ArraysLoops {
 
 	public static void main(String[] args) {
