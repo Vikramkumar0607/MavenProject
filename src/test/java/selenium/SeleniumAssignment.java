@@ -65,17 +65,17 @@ public class SeleniumAssignment {
 		WebElement adminlink = driver.findElement(By.xpath("//a[text()='Admin Page']"));
 		adminlink.click();
 		// 12. Wait for admin page
-		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//h1[contains(text(),'Administration')]]"), 0));
+		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//h1[contains(text(),'Administration')]"), 0));
 		// 13. Select Data access mode as ' SOAP'
 		selectDataAccessMode("soap");
 
 		// 14. Scrolldown till Loan provider
 		WebElement loandprovider = driver.findElement(By.xpath("//select[@name='loanProvider']"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("argumennts[0].scrollIntoView(true);", loandprovider);
+		js.executeScript("arguments[0].scrollIntoView(true);", loandprovider);
 		// 15. Select Loanprovider as 'Web Service'
 		Select webService = new Select(loandprovider);
-		webService.selectByValue("Web Service");
+		webService.selectByVisibleText("Web Service");
 
 		// 16. Click on Submit button
 		driver.findElement(By.xpath("//input[@value='Submit']")).click();
@@ -91,7 +91,7 @@ public class SeleniumAssignment {
 		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//span[text()='Available ParaBank SOAP services:']"), 0));
 		// 20.Scrolldown till Bookstore services
 		WebElement bookstore = driver.findElement(By.xpath("//span[text()='Bookstore services:']"));
-		js.executeScript("argumennts[0].scrollIntoView(true);", bookstore);
+		js.executeScript("arguments[0].scrollIntoView(true);", bookstore);
 		
 		// 21.Get total rows, columns in the bookstore service table
 		List<WebElement> rows = driver.findElements(By.xpath("//span[text()='Bookstore services:']//following-sibling::table[1]//tr"));
