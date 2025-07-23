@@ -52,9 +52,10 @@ public class SeleniumAssignment2 {
 		String[] hobbies = { "Reading", "Sports" };
 		selectHobbies(hobbies);
 		// 13.Upload photo
-		String FilePath = System.getProperty("user.dir" + "\\Files\\imageFile.jpg");
+		String FilePath = System.getProperty("user.dir") + "\\Files\\imageFile.jpg";
 		WebElement uploadPhoto = driver.findElement(By.xpath("//input[@id='uploadPicture']"));
 		uploadPhoto.sendKeys(FilePath);
+	
 		// 14. Wait till file upload
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		// 15.Submit Details
@@ -74,7 +75,7 @@ public class SeleniumAssignment2 {
 
 	public static void selectHobbies(String[] options) {
 		for (String option : options) {
-			WebElement hobbiescheckbox = driver.findElement(By.xpath("//label[text()='" + options + "']"));
+			WebElement hobbiescheckbox = driver.findElement(By.xpath("//label[text()='"+option+"']"));
 			if (!hobbiescheckbox.isSelected()) {
 				hobbiescheckbox.click();
 
@@ -122,8 +123,8 @@ public class SeleniumAssignment2 {
 		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(
 				By.xpath("//div[text()='" + subjectName + "' and contains(@id,'option')]"), 0));
 
-		WebElement suggestion = driver
-				.findElement(By.xpath("//div[text()='" + subjectName + "' and contains(@id,'option')]"));
+//Subject Click 		
+		WebElement suggestion = driver.findElement(By.xpath("//div[text()='"+subjectName+"' and contains(@id,'option')]"));
 		suggestion.click();
 	}
 
