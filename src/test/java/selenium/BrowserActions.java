@@ -20,7 +20,7 @@ public class BrowserActions {
 		// 4.Maximize the browser windows
 		driver.manage().window().maximize();
 
-		driver.get("https://nss.nexterp.in");
+		driver.get("https://nexterp.nexterp.in");
 		driver.findElement(By.xpath("//input[@name='username']")).sendKeys("9347726297");
 		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("Next@2007");
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
