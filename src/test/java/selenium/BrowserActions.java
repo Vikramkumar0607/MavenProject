@@ -27,6 +27,7 @@ public class BrowserActions {
 		driver.close();
 		
 		
+		
 	}
 
 }

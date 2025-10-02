@@ -99,6 +99,7 @@ public class SeleniumAssignment {
 		
 		int totalRows =rows.size();
 		int totalColums=colums.size();
+		System.out.println(totalRows);
 		
 		
 		// 22.Get Column headers of book store services table
